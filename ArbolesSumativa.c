@@ -80,3 +80,32 @@ ABO LeeArchivo(char nombreArchivo[50])
     fclose(archivo);
     return A;
 }
+//Retorna nivel de un nodo , la raíz se considera nivel 0
+int nivelDeUnNodo (ABO A, int valor) {
+    if (A->info == valor){
+        return 0;
+    }
+    if (valor < A ->info){
+        return 1+ nivelDeUnNodo(A->izq, valor);
+    } else {
+        return 1 + nivelDeUnNodo(A->der, valor);
+    }
+}
+
+//Retorna valor del nodo padre, y retorna -1 si es la raíz o no tiene padre
+int padreNodoABO(ABO A, int valor) {
+    // Si el árbol es nulo o el valor es la raíz , no tiene padre
+    if(A==NULL || A->info==valor){
+        return -1
+    }
+    //Revisar si alguno de los hijos es el valor buscado
+    if ((A->izq != NULL && A->izq->info == valor) || (A->der != NULL && A->der->info == valor)){
+        return A->info;
+
+    }
+    if (valor <A->info){
+        return padreNodoABO(A->izq, valor);
+    } else {
+        return padreNodoABO(A->der, valor);
+    }
+}
