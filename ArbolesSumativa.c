@@ -6,7 +6,7 @@
 int main(){
     ABO arbolPrincipal = NULL;
     int valorBuscado;
-    char archivoNodos[] = "1.txt";
+    char archivoNodos[50] = "1.txt";
 
     // Carga de datos
     arbolPrincipal = LeeArchivo(archivoNodos);
