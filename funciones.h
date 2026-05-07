@@ -74,7 +74,7 @@ ABO LeeArchivo(char nombreArchivo[50])
         // insertar el valor si lo encuentra en el ABO
         if (!estaEnABO(A, valor))
         {
-            A = insertaABO(A, valor);
+            A = insertarABO(A, valor);
         }
     }
 
@@ -97,7 +97,7 @@ int nivelDeUnNodo (ABO A, int valor) {
 int padreNodoABO(ABO A, int valor) {
     // Si el árbol es nulo o el valor es la raíz , no tiene padre
     if(A==NULL || A->info==valor){
-        return -1
+        return -1; 
     }
     //Revisar si alguno de los hijos es el valor buscado
     if ((A->izq != NULL && A->izq->info == valor) || (A->der != NULL && A->der->info == valor)){
