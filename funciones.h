@@ -110,3 +110,17 @@ int padreNodoABO(ABO A, int valor) {
         return padreNodoABO(A->der, valor);
     }
 }
+//Muestra los nodos que se encuentran desde la raíz hasta el nodo
+void antecesoresNodoABO (ABO A, int valor){
+    if (A==NULL || A->info == valor){
+        return;
+    }
+    //Imprime nodo actual y baja hacia el valor buscado
+    printf("%d ", A->info);
+    if (valor < A->info){
+        antecesoresNodoABO(A->izq, valor);
+    }else{
+        antecesoresNodoABO(A->der, valor);
+    }
+
+}
